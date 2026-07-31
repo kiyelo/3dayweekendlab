@@ -3,7 +3,7 @@ import "./globals.css";
 import "./refinements.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://3dayweekendlab.com"),
+  metadataBase: new URL("https://kiyelo.github.io/3dayweekendlab/"),
   title: {
     default: "3dayweekendlab",
     template: "%s | 3dayweekendlab",
