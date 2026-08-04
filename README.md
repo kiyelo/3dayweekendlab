@@ -31,5 +31,5 @@ storage, retention, third-party service, operator, and support details.
 
 The Supabase migration used by the account deletion page is tracked in
 `supabase/migrations/`. The production project must allow both
-`https://3dayweekendlab.com/delete-account/` and
-`https://3dayweekendlab.com/en/delete-account/` as Auth redirect URLs.
+`https://www.3dayweekendlab.com/delete-account/` and
+`https://www.3dayweekendlab.com/en/delete-account/` as Auth redirect URLs.

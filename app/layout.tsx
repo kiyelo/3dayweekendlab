@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://3dayweekendlab.com"),
+  metadataBase: new URL("https://www.3dayweekendlab.com"),
   title: {
     default: "3 Day Weekend Lab",
     template: "%s | 3 Day Weekend Lab",

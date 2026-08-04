@@ -29,5 +29,5 @@ test("includes GitHub Pages domain files", async () => {
   await access(new URL("CNAME", root));
   await access(new URL(".nojekyll", root));
   const cname = await readFile(new URL("CNAME", root), "utf8");
-  assert.equal(cname.trim(), "3dayweekendlab.com");
+  assert.equal(cname.trim(), "www.3dayweekendlab.com");
 });
