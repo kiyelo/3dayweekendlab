@@ -56,7 +56,7 @@ a { color: inherit; text-decoration: none; }
   display: grid; font-size: clamp(62px, 8.2vw, 132px); line-height: .88;
   font-weight: 900; letter-spacing: .055em;
 }
-.wordmark-dot { margin-left: .07em; }
+.wordmark-dot { margin-left: .07em; color: var(--red); }
 
 .desktop-nav { display: flex; align-items: center; gap: 36px; font-size: 13px; font-weight: 800; }
 .desktop-nav > a, .product-menu > summary { padding-block: 26px; }

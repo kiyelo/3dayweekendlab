@@ -12,12 +12,12 @@ export default function Page() {
       locale="en"
       active="privacy"
       title="Privacy Policy"
-      lead="3 Day Weekend Lab processes the information below to provide Kkiu. This policy reflects the fields actually stored by the authentication system and database."
+      lead="3 DAY WEEKEND LAB. processes the information below to provide Kkiu. This policy reflects the fields actually stored by the authentication system and database."
       sections={[
         {
           title: "1. Scope",
           paragraphs: [
-            "This policy applies to Kkiu, a to-do application provided by 3 Day Weekend Lab, and Kkiu’s web-based account deletion service.",
+            "This policy applies to Kkiu, a to-do application provided by 3 DAY WEEKEND LAB., and Kkiu’s web-based account deletion service.",
           ],
         },
         {

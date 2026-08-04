@@ -12,7 +12,7 @@ export default function Page() {
       locale="en"
       active="terms"
       title="Terms of Service"
-      lead="These terms describe the basic conditions for using Kkiu, a to-do application provided by 3 Day Weekend Lab."
+      lead="These terms describe the basic conditions for using Kkiu, a to-do application provided by 3 DAY WEEKEND LAB."
       notice={{
         title: "Draft",
         body: "The effective date and detailed clauses will be reviewed when the service operator and launch features are finalized.",

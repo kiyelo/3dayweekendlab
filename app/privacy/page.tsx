@@ -12,12 +12,12 @@ export default function Page() {
       locale="ko"
       active="privacy"
       title="개인정보처리방침"
-      lead="3 Day Weekend Lab은 끼우 서비스를 제공하기 위해 아래 정보를 처리합니다. 본 방침은 데이터베이스와 인증 시스템의 실제 저장 항목을 기준으로 작성되었습니다."
+      lead="3 DAY WEEKEND LAB.은 끼우 서비스를 제공하기 위해 아래 정보를 처리합니다. 본 방침은 데이터베이스와 인증 시스템의 실제 저장 항목을 기준으로 작성되었습니다."
       sections={[
         {
           title: "1. 적용 대상",
           paragraphs: [
-            "본 방침은 3 Day Weekend Lab이 제공하는 투두 애플리케이션 ‘끼우(Kkiu)’와 끼우의 웹 계정 삭제 서비스에 적용됩니다.",
+            "본 방침은 3 DAY WEEKEND LAB.이 제공하는 투두 애플리케이션 ‘끼우(Kkiu)’와 끼우의 웹 계정 삭제 서비스에 적용됩니다.",
           ],
         },
         {

@@ -12,7 +12,7 @@ export default function Page() {
       locale="ko"
       active="terms"
       title="이용약관"
-      lead="본 약관은 3 Day Weekend Lab이 제공하는 투두 애플리케이션 끼우의 기본 이용 조건을 안내합니다."
+      lead="본 약관은 3 DAY WEEKEND LAB.이 제공하는 투두 애플리케이션 끼우의 기본 이용 조건을 안내합니다."
       notice={{
         title: "초안",
         body: "서비스 운영 주체와 출시 기능이 확정된 후 시행일 및 세부 조항을 검토하여 게시합니다.",

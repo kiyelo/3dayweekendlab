@@ -30,6 +30,10 @@ function p(locale: Locale, path: string) {
   return locale === "ko" ? path : `/en${path}`;
 }
 
+function kkiuHref(locale: Locale) {
+  return locale === "ko" ? "https://kkiu.3dayweekendlab.com/" : "https://kkiu.3dayweekendlab.com/en/";
+}
+
 export function LogoSymbol({ compact = false }: { compact?: boolean }) {
   return (
     <span className={compact ? "logo-symbol logo-symbol-compact" : "logo-symbol"} aria-hidden="true">
@@ -68,14 +72,14 @@ export function Header({
   const home = locale === "ko" ? "/" : "/en";
   const languageHref = alternateHref ?? (locale === "ko" ? "/en" : "/");
   const contactHref = locale === "ko" ? "/#contact" : "/en/#contact";
-  const productHref = p(locale, "/products/kkiu");
+  const productHref = kkiuHref(locale);
 
   return (
     <header className="site-header">
       <div className="header-inner">
-        <Link className="header-brand" href={home} aria-label="3 Day Weekend Lab home">
+        <Link className="header-brand" href={home} aria-label="3 DAY WEEKEND LAB. home">
           <LogoSymbol compact />
-          <span>3DWL</span>
+          <span>3 DAY WEEKEND LAB<span className="red">.</span></span>
         </Link>
 
         <nav className="desktop-nav" aria-label="Main navigation">
@@ -110,7 +114,7 @@ export function Header({
 export function ProductSubnav({ locale, active = "intro" }: { locale: Locale; active?: string }) {
   const c = labels[locale];
   const links = [
-    ["intro", p(locale, "/products/kkiu"), c.intro],
+    ["intro", kkiuHref(locale), c.intro],
     ["privacy", p(locale, "/privacy"), c.privacy],
     ["terms", p(locale, "/terms"), c.terms],
     ["deletion", p(locale, "/delete-account"), c.deletion],
@@ -119,7 +123,7 @@ export function ProductSubnav({ locale, active = "intro" }: { locale: Locale; ac
   return (
     <nav className="product-subnav" aria-label={locale === "ko" ? "끼우 메뉴" : "Kkiu navigation"}>
       <div className="subnav-inner">
-        <Link className="subnav-title" href={p(locale, "/products/kkiu")}>
+        <Link className="subnav-title" href={kkiuHref(locale)}>
           KKIU TODO
         </Link>
         <div className="subnav-links">
@@ -141,14 +145,13 @@ export function Footer({ locale }: { locale: Locale }) {
       <div className="footer-inner">
         <div>
           <strong>3 DAY WEEKEND LAB<span className="red">.</span></strong>
-          <p>Independent development studio.</p>
         </div>
         <nav aria-label="Legal">
           <Link href={p(locale, "/privacy")}>{c.privacy}</Link>
           <Link href={p(locale, "/terms")}>{c.terms}</Link>
           <Link href={p(locale, "/delete-account")}>{c.deletion}</Link>
         </nav>
-        <p className="copyright">© {new Date().getFullYear()} 3DWL</p>
+        <p className="copyright">© {new Date().getFullYear()} 3 DAY WEEKEND LAB<span className="red">.</span></p>
       </div>
     </footer>
   );
@@ -162,17 +165,13 @@ export function HomePage({ locale }: { locale: Locale }) {
       <Header locale={locale} />
       <main id="main">
         <section className="brand-hero">
-          <div className="hero-meta">
-            <span>INDEPENDENT DEVELOPMENT STUDIO</span>
-            <span>SEOUL · KR</span>
-          </div>
           <BrandLockup />
           <div className="hero-intro">
             <span className="index">ABOUT / 00</span>
             <p>
               {ko
-                ? "3 Day Weekend Lab은 일과 생활을 조금 덜 복잡하게 만드는 소프트웨어를 개발합니다."
-                : "3 Day Weekend Lab develops software that makes work and everyday life a little less complicated."}
+                ? "3 DAY WEEKEND LAB.은 일과 생활을 조금 덜 복잡하게 만드는 소프트웨어를 개발합니다."
+                : "3 DAY WEEKEND LAB. develops software that makes work and everyday life a little less complicated."}
             </p>
           </div>
         </section>
@@ -190,7 +189,7 @@ export function HomePage({ locale }: { locale: Locale }) {
                   ? "해야 할 일을 오늘의 빈틈에 끼워 넣고, 하나씩 가볍게 끝내는 투두 앱."
                   : "A simple to-do app for fitting tasks into the open spaces of your day."}
               </p>
-              <Link className="text-link" href={p(locale, "/products/kkiu")}>
+              <Link className="text-link" href={kkiuHref(locale)}>
                 {ko ? "제품 보기" : "View product"} <span aria-hidden="true">↗</span>
               </Link>
             </div>
@@ -380,8 +379,8 @@ export function DeleteAccountPage({ locale }: { locale: Locale }) {
             <strong>{ko ? "보안 안내" : "Security notice"}</strong>
             <p>
               {ko
-                ? "3 Day Weekend Lab은 계정 삭제를 위해 Google 비밀번호나 일회용 인증 코드를 요청하지 않습니다."
-                : "3 Day Weekend Lab never asks for your Google password or one-time code to delete an account."}
+                ? "3 DAY WEEKEND LAB.은 계정 삭제를 위해 Google 비밀번호나 일회용 인증 코드를 요청하지 않습니다."
+                : "3 DAY WEEKEND LAB. never asks for your Google password or one-time code to delete an account."}
             </p>
           </section>
         </div>
