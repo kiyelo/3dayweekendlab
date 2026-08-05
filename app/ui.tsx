@@ -34,6 +34,10 @@ function kkiuHref(locale: Locale) {
   return locale === "ko" ? "https://kkiu.3dayweekendlab.com/" : "https://kkiu.3dayweekendlab.com/en/";
 }
 
+function contactHref(locale: Locale) {
+  return locale === "ko" ? "/#contact" : "/en/#contact";
+}
+
 export function LogoSymbol({ compact = false }: { compact?: boolean }) {
   return (
     <span className={compact ? "logo-symbol logo-symbol-compact" : "logo-symbol"} aria-hidden="true">
@@ -71,7 +75,7 @@ export function Header({
   const c = labels[locale];
   const home = locale === "ko" ? "/" : "/en";
   const languageHref = alternateHref ?? (locale === "ko" ? "/en" : "/");
-  const contactHref = locale === "ko" ? "/#contact" : "/en/#contact";
+  const contactLink = contactHref(locale);
   const productHref = kkiuHref(locale);
 
   return (
@@ -92,7 +96,7 @@ export function Header({
               </Link>
             </div>
           </details>
-          <Link href={contactHref}>{c.contact}</Link>
+          <Link href={contactLink}>{c.contact}</Link>
           <Link className="language-link" href={languageHref} hrefLang={locale === "ko" ? "en" : "ko"}>
             {locale === "ko" ? "EN" : "KO"}
           </Link>
@@ -102,7 +106,7 @@ export function Header({
           <summary>{c.menu}</summary>
           <nav className="mobile-menu" aria-label="Mobile navigation">
             <Link href={productHref}>{c.kkiu}</Link>
-            <Link href={contactHref}>{c.contact}</Link>
+            <Link href={contactLink}>{c.contact}</Link>
             <Link href={languageHref}>{locale === "ko" ? "English" : "한국어"}</Link>
           </nav>
         </details>
@@ -140,17 +144,11 @@ export function ProductSubnav({ locale, active = "intro" }: { locale: Locale; ac
 
 export function Footer({ locale }: { locale: Locale }) {
   const c = labels[locale];
+
   return (
     <footer className="site-footer">
       <div className="footer-inner">
-        <div>
-          <strong>3 DAY WEEKEND LAB<span className="red">.</span></strong>
-        </div>
-        <nav aria-label="Legal">
-          <Link href={p(locale, "/privacy")}>{c.privacy}</Link>
-          <Link href={p(locale, "/terms")}>{c.terms}</Link>
-          <Link href={p(locale, "/delete-account")}>{c.deletion}</Link>
-        </nav>
+        <Link className="footer-contact" href={contactHref(locale)}>{c.contact}</Link>
         <p className="copyright">© {new Date().getFullYear()} 3 DAY WEEKEND LAB<span className="red">.</span></p>
       </div>
     </footer>
@@ -205,14 +203,14 @@ export function HomePage({ locale }: { locale: Locale }) {
 
         <section className="contact-section" id="contact">
           <div className="section-index">CONTACT / 02</div>
-          <div>
+          <Link className="contact-link" href={contactHref(locale)}>
             <h2>{ko ? "함께 이야기할 일이 있나요?" : "Have something to discuss?"}</h2>
             <p>
               {ko
                 ? "공식 문의 채널은 제품 출시와 함께 이곳에 안내합니다."
                 : "Our official contact channel will be published here with the product launch."}
             </p>
-          </div>
+          </Link>
         </section>
       </main>
       <Footer locale={locale} />
