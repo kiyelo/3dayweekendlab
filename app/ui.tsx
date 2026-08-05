@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { AccountDeleteClient } from "./account-delete-client";
 
 export type Locale = "ko" | "en";
 
@@ -26,12 +25,10 @@ const labels = {
   },
 } as const;
 
-function p(locale: Locale, path: string) {
-  return locale === "ko" ? path : `/en${path}`;
-}
-
-function kkiuHref(locale: Locale) {
-  return locale === "ko" ? "https://kkiu.3dayweekendlab.com/" : "https://kkiu.3dayweekendlab.com/en/";
+function kkiuHref(locale: Locale, path = "/") {
+  return locale === "ko"
+    ? `https://kkiu.3dayweekendlab.com${path}`
+    : `https://kkiu.3dayweekendlab.com/en${path}`;
 }
 
 function contactHref(locale: Locale) {
@@ -119,9 +116,9 @@ export function ProductSubnav({ locale, active = "intro" }: { locale: Locale; ac
   const c = labels[locale];
   const links = [
     ["intro", kkiuHref(locale), c.intro],
-    ["privacy", p(locale, "/privacy"), c.privacy],
-    ["terms", p(locale, "/terms"), c.terms],
-    ["deletion", p(locale, "/delete-account"), c.deletion],
+    ["privacy", kkiuHref(locale, "/privacy/"), c.privacy],
+    ["terms", kkiuHref(locale, "/terms/"), c.terms],
+    ["deletion", kkiuHref(locale, "/delete-account/"), c.deletion],
   ];
 
   return (
@@ -280,106 +277,6 @@ export function ProductPage({ locale }: { locale: Locale }) {
           <p>{ko ? "다운로드 링크는 출시 시 연결됩니다." : "The download link will be added at launch."}</p>
           <span className="coming-soon">{ko ? "준비 중" : "COMING SOON"}</span>
         </section>
-      </main>
-      <Footer locale={locale} />
-    </>
-  );
-}
-
-export type LegalSection = {
-  title: string;
-  paragraphs?: string[];
-  bullets?: string[];
-};
-
-export function LegalPage({
-  locale,
-  title,
-  lead,
-  sections,
-  notice,
-  active,
-}: {
-  locale: Locale;
-  title: string;
-  lead: string;
-  sections: LegalSection[];
-  notice?: { title: string; body: string };
-  active: "privacy" | "terms";
-}) {
-  return (
-    <>
-      <Header locale={locale} />
-      <ProductSubnav locale={locale} active={active} />
-      <main className="legal-main">
-        <div className="legal-wrap">
-          <header className="legal-hero">
-            <p>KKIU TODO / POLICY</p>
-            <h1>{title}<span className="square-dot" aria-hidden="true" /></h1>
-            <div className="legal-lead">{lead}</div>
-          </header>
-          {notice ? (
-            <aside className="notice-box">
-              <strong>{notice.title}</strong>
-              <p>{notice.body}</p>
-            </aside>
-          ) : null}
-          <div className="legal-content">
-            {sections.map((section) => (
-              <section className="legal-section" key={section.title}>
-                <h2>{section.title}</h2>
-                {section.paragraphs?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-                {section.bullets ? <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul> : null}
-              </section>
-            ))}
-          </div>
-        </div>
-      </main>
-      <Footer locale={locale} />
-    </>
-  );
-}
-
-export function DeleteAccountPage({ locale }: { locale: Locale }) {
-  const ko = locale === "ko";
-  return (
-    <>
-      <Header locale={locale} />
-      <ProductSubnav locale={locale} active="deletion" />
-      <main className="legal-main">
-        <div className="legal-wrap">
-          <header className="legal-hero">
-            <p>KKIU TODO / ACCOUNT</p>
-            <h1>{ko ? "회원 탈퇴" : "Leave Kkiu"}<span className="square-dot" aria-hidden="true" /></h1>
-            <div className="legal-lead">
-              {ko
-                ? "가입에 사용한 동일한 Google 계정으로 다시 인증하여 회원 본인임을 확인합니다."
-                : "Kkiu verifies ownership by asking you to authenticate again with the same Google account used to sign up."}
-            </div>
-          </header>
-          <div className="deletion-flow">
-            {[
-              ko ? ["01", "Google로 다시 로그인", "끼우 가입에 사용한 Google 계정을 선택합니다."] : ["01", "Sign in again", "Choose the Google account originally used for Kkiu."],
-              ko ? ["02", "회원 정보 대조", "서버가 Google 인증 정보와 기존 끼우 회원 정보를 대조합니다."] : ["02", "Match the membership", "The server matches Google’s authentication response with your Kkiu membership."],
-              ko ? ["03", "탈퇴 의사 확인", "탈퇴 시 처리되는 정보와 결과를 안내한 뒤 마지막 확인을 받습니다."] : ["03", "Confirm withdrawal", "Kkiu explains what happens when you leave and asks for final confirmation."],
-            ].map(([num, title, body]) => (
-              <article key={num}>
-                <span>{num}</span>
-                <h2>{title}</h2>
-                <p>{body}</p>
-              </article>
-            ))}
-          </div>
-          <AccountDeleteClient locale={locale} />
-          <section className="security-note">
-            <strong>{ko ? "보안 안내" : "Security notice"}</strong>
-            <p>
-              {ko
-                ? "3 DAY WEEKEND LAB.은 회원 탈퇴를 위해 Google 비밀번호나 일회용 인증 코드를 요청하지 않습니다."
-                : "3 DAY WEEKEND LAB. never asks for your Google password or one-time code when you leave Kkiu."}
-            </p>
-          </section>
-        </div>
       </main>
       <Footer locale={locale} />
     </>
