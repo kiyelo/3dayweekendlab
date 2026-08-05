@@ -75,7 +75,7 @@ export function AccountDeleteClient({ locale }: { locale: "ko" | "en" }) {
   }
 
   async function deleteAccount() {
-    if (!user || !acknowledged || confirmation.trim() !== (ko ? "계정 삭제" : "DELETE")) return;
+    if (!user || !acknowledged || confirmation.trim() !== (ko ? "회원 탈퇴" : "LEAVE")) return;
 
     setStage("deleting");
     setMessage("");
@@ -105,8 +105,8 @@ export function AccountDeleteClient({ locale }: { locale: "ko" | "en" }) {
       <div className="account-action account-success" role="status">
         <span>✓</span>
         <div>
-          <h2>{ko ? "계정 삭제가 완료되었습니다." : "Your account has been deleted."}</h2>
-          <p>{ko ? "끼우에서 로그아웃되었으며 삭제된 계정으로 다시 로그인할 수 없습니다." : "You have been signed out of Kkiu and can no longer access the deleted account."}</p>
+          <h2>{ko ? "회원 탈퇴가 완료되었습니다." : "You have left Kkiu."}</h2>
+          <p>{ko ? "끼우에서 로그아웃되었으며 탈퇴한 회원 정보로 다시 로그인할 수 없습니다." : "You have been signed out and can no longer access the withdrawn membership."}</p>
         </div>
       </div>
     );
@@ -133,7 +133,7 @@ export function AccountDeleteClient({ locale }: { locale: "ko" | "en" }) {
     );
   }
 
-  const requiredText = ko ? "계정 삭제" : "DELETE";
+  const requiredText = ko ? "회원 탈퇴" : "LEAVE";
   const enabled = acknowledged && confirmation.trim() === requiredText && stage !== "deleting";
 
   return (
@@ -153,7 +153,7 @@ export function AccountDeleteClient({ locale }: { locale: "ko" | "en" }) {
         <span className="action-index">STEP 02</span>
         <h2>{ko ? "삭제 내용을 확인하세요" : "Confirm what will be deleted"}</h2>
         <ul>
-          <li>{ko ? "Google OAuth 계정 및 끼우 프로필" : "Google OAuth account and Kkiu profile"}</li>
+          <li>{ko ? "끼우 회원 정보 및 프로필" : "Kkiu membership information and profile"}</li>
           <li>{ko ? "개인 할 일, 약관 동의 기록, 기기 푸시 토큰" : "Personal tasks, terms acceptance records, and device push tokens"}</li>
           <li>{ko ? "개인 완료 기록 및 계정과 연결된 알림 대기 데이터" : "Personal completion history and queued notification data linked to the account"}</li>
         </ul>
@@ -165,7 +165,7 @@ export function AccountDeleteClient({ locale }: { locale: "ko" | "en" }) {
 
         <label className="acknowledge">
           <input type="checkbox" checked={acknowledged} onChange={(event) => setAcknowledged(event.target.checked)} />
-          <span>{ko ? "삭제 후 계정과 개인 데이터를 복구할 수 없음을 이해했습니다." : "I understand that the account and personal data cannot be recovered."}</span>
+          <span>{ko ? "탈퇴 후 회원 정보와 개인 데이터를 복구할 수 없음을 이해했습니다." : "I understand that my membership and personal data cannot be recovered after I leave."}</span>
         </label>
 
         <label className="confirmation-field">
@@ -183,7 +183,7 @@ export function AccountDeleteClient({ locale }: { locale: "ko" | "en" }) {
         </label>
 
         <button className="delete-button" type="button" disabled={!enabled} onClick={deleteAccount}>
-          {stage === "deleting" ? (ko ? "삭제하는 중…" : "Deleting…") : (ko ? "끼우 계정 영구 삭제" : "Permanently delete Kkiu account")}
+          {stage === "deleting" ? (ko ? "탈퇴 처리 중…" : "Leaving…") : (ko ? "끼우 회원 탈퇴" : "Leave Kkiu")}
         </button>
         {message ? <p className="form-error" role="alert">{message}</p> : null}
       </div>

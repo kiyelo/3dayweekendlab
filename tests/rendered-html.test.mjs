@@ -13,8 +13,8 @@ const routes = [
   ["en/privacy/index.html", "Privacy Policy"],
   ["terms/index.html", "이용약관"],
   ["en/terms/index.html", "Terms of Service"],
-  ["delete-account/index.html", "끼우 계정 삭제"],
-  ["en/delete-account/index.html", "Delete your Kkiu account"],
+  ["delete-account/index.html", "끼우 회원 탈퇴"],
+  ["en/delete-account/index.html", "Leave Kkiu"],
 ];
 
 test("exports every Korean and English route", async () => {

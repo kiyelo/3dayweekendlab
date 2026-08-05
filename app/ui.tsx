@@ -12,7 +12,7 @@ const labels = {
     intro: "소개",
     privacy: "개인정보처리방침",
     terms: "이용약관",
-    deletion: "계정 삭제",
+    deletion: "회원 탈퇴",
   },
   en: {
     product: "Products",
@@ -22,7 +22,7 @@ const labels = {
     intro: "Overview",
     privacy: "Privacy",
     terms: "Terms",
-    deletion: "Delete account",
+    deletion: "Leave Kkiu",
   },
 } as const;
 
@@ -203,14 +203,12 @@ export function HomePage({ locale }: { locale: Locale }) {
 
         <section className="contact-section" id="contact">
           <div className="section-index">CONTACT / 02</div>
-          <Link className="contact-link" href={contactHref(locale)}>
+          <div>
             <h2>{ko ? "함께 이야기할 일이 있나요?" : "Have something to discuss?"}</h2>
-            <p>
-              {ko
-                ? "공식 문의 채널은 제품 출시와 함께 이곳에 안내합니다."
-                : "Our official contact channel will be published here with the product launch."}
-            </p>
-          </Link>
+            <Link className="text-link" href={contactHref(locale)}>
+              {ko ? "문의하기" : "Contact"} <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
         </section>
       </main>
       <Footer locale={locale} />
@@ -352,18 +350,18 @@ export function DeleteAccountPage({ locale }: { locale: Locale }) {
         <div className="legal-wrap">
           <header className="legal-hero">
             <p>KKIU TODO / ACCOUNT</p>
-            <h1>{ko ? "계정 삭제" : "Delete account"}<span className="red">.</span></h1>
+            <h1>{ko ? "회원 탈퇴" : "Leave Kkiu"}<span className="red">.</span></h1>
             <div className="legal-lead">
               {ko
-                ? "가입에 사용한 동일한 Google 계정으로 다시 인증하여 계정 소유자 본인임을 확인합니다."
+                ? "가입에 사용한 동일한 Google 계정으로 다시 인증하여 회원 본인임을 확인합니다."
                 : "Kkiu verifies ownership by asking you to authenticate again with the same Google account used to sign up."}
             </div>
           </header>
           <div className="deletion-flow">
             {[
               ko ? ["01", "Google로 다시 로그인", "끼우 가입에 사용한 Google 계정을 선택합니다."] : ["01", "Sign in again", "Choose the Google account originally used for Kkiu."],
-              ko ? ["02", "계정 식별자 대조", "서버가 Google 인증 정보와 기존 끼우 계정을 대조합니다."] : ["02", "Match the account", "The server matches Google’s authentication response with your Kkiu account."],
-              ko ? ["03", "삭제 의사 확인", "삭제 대상과 결과를 안내한 뒤 마지막 확인을 받습니다."] : ["03", "Confirm deletion", "Kkiu explains the result and asks for final confirmation."],
+              ko ? ["02", "회원 정보 대조", "서버가 Google 인증 정보와 기존 끼우 회원 정보를 대조합니다."] : ["02", "Match the membership", "The server matches Google’s authentication response with your Kkiu membership."],
+              ko ? ["03", "탈퇴 의사 확인", "탈퇴 시 처리되는 정보와 결과를 안내한 뒤 마지막 확인을 받습니다."] : ["03", "Confirm withdrawal", "Kkiu explains what happens when you leave and asks for final confirmation."],
             ].map(([num, title, body]) => (
               <article key={num}>
                 <span>{num}</span>
@@ -377,8 +375,8 @@ export function DeleteAccountPage({ locale }: { locale: Locale }) {
             <strong>{ko ? "보안 안내" : "Security notice"}</strong>
             <p>
               {ko
-                ? "3 DAY WEEKEND LAB.은 계정 삭제를 위해 Google 비밀번호나 일회용 인증 코드를 요청하지 않습니다."
-                : "3 DAY WEEKEND LAB. never asks for your Google password or one-time code to delete an account."}
+                ? "3 DAY WEEKEND LAB.은 회원 탈퇴를 위해 Google 비밀번호나 일회용 인증 코드를 요청하지 않습니다."
+                : "3 DAY WEEKEND LAB. never asks for your Google password or one-time code when you leave Kkiu."}
             </p>
           </section>
         </div>

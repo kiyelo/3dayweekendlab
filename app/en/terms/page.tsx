@@ -23,13 +23,14 @@ export default function Page() {
         {
           title: "2. The service",
           paragraphs: [
-            "Kkiu provides personal task management, shared tasks between members, activity and completion status, and notifications. The service is currently free. If paid features are introduced, the price and conditions will be shown before purchase.",
+            "Kkiu provides personal task management, shared tasks between members, activity and completion status, and notifications. If paid features are introduced, the price and conditions will be shown before purchase.",
           ],
         },
         {
-          title: "3. Accounts",
+          title: "3. Registration and accounts",
           paragraphs: [
-            "Users may create an account through Google authentication. Users must use accurate information, keep access to their account secure, and report unauthorized use to 3dayweekendlab@gmail.com.",
+            "Users may register through the authentication methods offered by Kkiu. When an external sign-in service is used, that service’s terms may also apply.",
+            "Users must provide accurate information, keep access to their account secure, and report unauthorized use to 3dayweekendlab@gmail.com.",
           ],
         },
         {
@@ -61,9 +62,9 @@ export default function Page() {
           ],
         },
         {
-          title: "8. Closing an account",
+          title: "8. Leaving Kkiu",
           paragraphs: [
-            "Users may leave the service at any time through the account deletion feature. The account deletion page and Privacy Policy explain what is deleted and how shared data is handled.",
+            "Users may leave Kkiu at any time through the membership withdrawal feature. Member information and personal data are deleted, while the withdrawal page and Privacy Policy explain how shared Kkiri data is handled.",
           ],
         },
         {

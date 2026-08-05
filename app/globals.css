@@ -56,7 +56,10 @@ a { color: inherit; text-decoration: none; }
   display: grid; font-size: clamp(62px, 8.2vw, 132px); line-height: .88;
   font-weight: 900; letter-spacing: .055em;
 }
-.wordmark-dot { margin-left: .07em; color: var(--red); }
+.wordmark-dot {
+  display: inline-block; width: .14em; aspect-ratio: 1; margin-left: .09em;
+  background: var(--red); color: transparent; vertical-align: .08em;
+}
 
 .desktop-nav { display: flex; align-items: center; gap: 36px; font-size: 13px; font-weight: 800; }
 .desktop-nav > a, .product-menu > summary { padding-block: 26px; }
@@ -117,11 +120,9 @@ a { color: inherit; text-decoration: none; }
   min-height: 520px; display: grid; grid-template-columns: 1fr 2fr; gap: 40px;
   padding: 74px max(28px, calc((100vw - 1380px) / 2)); background: var(--black); color: white;
 }
-.contact-link { display: block; }
-.contact-section h2 { max-width: 850px; margin: 90px 0 28px; font-size: clamp(46px, 6vw, 94px); line-height: .98; letter-spacing: -.06em; }
-.contact-section p { color: #aaa6a2; font-size: 16px; }
-.contact-link h2 { transition: color .2s ease; }
-.contact-link:hover h2, .contact-link:focus-visible h2 { color: var(--red); }
+.contact-section h2 { max-width: 850px; margin: 90px 0 28px; font-size: clamp(46px, 6vw, 94px); line-height: .98; letter-spacing: -.06em; word-break: keep-all; text-wrap: balance; }
+.contact-section .text-link { color: white; border-color: white; }
+.contact-section .text-link:hover { color: var(--red); border-color: var(--red); }
 
 .product-subnav { position: sticky; top: 74px; z-index: 40; height: 55px; border-bottom: 1px solid var(--line); background: var(--white); }
 .subnav-inner { justify-content: space-between; }
@@ -249,6 +250,8 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 650px) {
   .site-header { height: 64px; }
+  .header-brand { gap: 9px; font-size: 11px; letter-spacing: .06em; }
+  .header-brand .logo-symbol-compact { width: 27px; }
   .product-subnav { top: 64px; height: auto; }
   .subnav-inner { display: block; padding: 12px 0 0; overflow-x: auto; }
   .subnav-title { display: none; }
@@ -256,9 +259,9 @@ a { color: inherit; text-decoration: none; }
   .subnav-links a { padding: 10px 0 13px; }
   .brand-hero { min-height: calc(100svh - 64px); padding-inline: 18px; }
   .hero-meta span:last-child { display: none; }
-  .brand-hero > .brand-lockup { display: grid; gap: 34px; justify-items: start; width: 100%; }
-  .logo-symbol { width: 175px; }
-  .wordmark { font-size: clamp(58px, 18vw, 82px); }
+  .brand-hero > .brand-lockup { display: flex; gap: clamp(20px, 5vw, 34px); width: 100%; }
+  .brand-hero .logo-symbol { flex: 0 0 clamp(105px, 30vw, 165px); width: clamp(105px, 30vw, 165px); }
+  .brand-hero .wordmark { min-width: 0; font-size: clamp(34px, 9.5vw, 62px); letter-spacing: .035em; }
   .hero-intro { grid-template-columns: 1fr; gap: 14px; }
   .hero-intro p { font-size: 18px; }
   .home-product { min-height: 650px; padding: 54px 18px; }

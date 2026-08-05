@@ -15,89 +15,79 @@ export default function Page() {
       lead="3 DAY WEEKEND LAB. processes only the personal information needed to provide Kkiu."
       sections={[
         {
-          title: "1. Scope",
-          paragraphs: [
-            "This policy applies to Kkiu, a to-do application provided by 3 DAY WEEKEND LAB., and the account deletion feature on the Kkiu website.",
-          ],
-        },
-        {
-          title: "2. Information we process",
+          title: "1. Information we process and why",
           bullets: [
-            "Account and authentication: Google account email, name and profile image provided by Google, OAuth provider information, and Kkiu account UUID",
-            "Profile: display name, emoji, notification preferences, and creation/update timestamps",
-            "Tasks and Kkiri: task title, order, completion and notification details; Kkiri name, emoji and invite code; member UUID, role, nickname, emoji, and join/leave timestamps",
-            "Usage records: read and completion records, changes to memberships, profiles and tasks within a Kkiri, and event timestamps",
-            "Consent records: document type and version, consent time, locale, app version, and related context",
-            "Notifications: device platform, push token, notification status, and delivery processing records",
+            "Registration and sign-in: email, account identifier, name, and profile image received from the sign-in provider selected by the user",
+            "Profile and settings: nickname, emoji, language, and notification preferences",
+            "Service use: personal and shared tasks, Kkiri names, invite codes and membership information, completion, read, and activity records",
+            "Service operation: terms acceptance records, device push tokens, and notification processing records",
           ],
           paragraphs: [
-            "We collect this information from Google sign-in, information users enter, and records created while the service is used. Kkiu requests only the openid, email, and profile scopes and never collects a Google password or one-time authentication code.",
+            "We use this information for registration and identity verification, task and Kkiri features, data synchronization, notifications, support, and service security. It is collected from sign-in providers, user input, and use of the service.",
           ],
         },
         {
-          title: "3. Why we use it",
+          title: "2. Retention",
           bullets: [
-            "Creating accounts, signing users in, and verifying account ownership",
-            "Storing and synchronizing personal and shared tasks and providing Kkiri features",
-            "Showing activity, completion and read status, and sending service notifications",
-            "Maintaining consent records, processing account deletion, and protecting the service",
+            "Member information, profiles, personal tasks, and settings: until the member leaves Kkiu",
+            "Shared Kkiri, task, and activity records: while the relevant Kkiri remains active. Information identifying a departing member is deleted or anonymized.",
+            "Kkiri activity may be displayed in the app for the most recent 90 days; this is not the retention period for personal information.",
           ],
+          paragraphs: ["Where applicable law requires retention, only the required information is kept for the legally required period."],
         },
         {
-          title: "4. Retention",
+          title: "3. Sharing with third parties",
           paragraphs: [
-            "Account and service data is generally kept until the account is deleted. Kkiri activity records are retained for 90 days after creation. Queued notification information is kept only as long as needed for delivery and error handling.",
-            "If applicable law requires retention, only the required information will be kept for the legally required period.",
+            "3 DAY WEEKEND LAB. does not provide personal information to third parties, except with the user’s separate consent or where applicable law permits or requires it.",
           ],
         },
         {
-          title: "5. Sharing with third parties",
+          title: "4. Service providers and international transfers",
+          bullets: [
+            "Processor and recipient: Supabase Pte. Ltd. (https://supabase.com/privacy)",
+            "Purpose: member authentication, data storage, and service operation",
+            "Information transferred: the categories listed in Section 1",
+            "Country, timing, and method: Japan, transmitted over encrypted networks when the service is used",
+            "Retention: until the member leaves Kkiu or the service agreement with the processor ends",
+          ],
           paragraphs: [
-            "3 DAY WEEKEND LAB. does not sell or provide personal information to third parties, except with the user’s separate consent or where applicable law specifically permits or requires it.",
+            "The transfer is necessary to perform the service agreement with the user. A user may refuse it by not registering, but account-based features will then be unavailable.",
           ],
         },
         {
-          title: "6. Service providers and international processing",
-          paragraphs: [
-            "We use Supabase, Inc. for authentication and database operations. Account and service data is transferred over encrypted networks and processed and stored in a Japan region for the duration of use or until the service-provider agreement ends.",
-            "Google LLC processes Google OAuth sign-in and provides account information. During sign-in, email and public profile information may be processed over encrypted networks in the United States and other countries where Google operates, subject to Google’s retention policies.",
-            "This processing is necessary to perform the service agreement with the user. A user may refuse the transfer by not proceeding with Google sign-in, but account-based features will then be unavailable.",
-          ],
-        },
-        {
-          title: "7. Deletion",
+          title: "5. Deletion",
           paragraphs: [
             "We delete personal information without undue delay when its purpose is fulfilled or its retention period ends. Electronic files are deleted using methods designed to prevent recovery.",
-            "Deleting an account removes the authentication account, email, profile, personal tasks, personal completion and read records, consent records, push tokens, and queued notifications linked to that account. Shared Kkiri, task and activity records may remain for other members, but the departing user’s profile and actor information is deleted or anonymized.",
+            "When a member leaves Kkiu, member information and personal data are deleted. Shared Kkiri data may remain for service continuity, but information identifying the departing member is deleted or anonymized.",
           ],
         },
         {
-          title: "8. User rights",
+          title: "6. User and legal representative rights",
           paragraphs: [
-            "Users can view or update profile information in the app and can request deletion after verifying ownership with the Google account used to sign up. Requests to access, correct, delete, or restrict processing may also be sent to the email below and will be handled after identity verification as required by applicable law.",
+            "Users can view or update their information in the app and may leave Kkiu at any time. Requests to access, correct, delete, or restrict personal information may be sent to the email below and will be handled after identity verification. A legal representative may exercise a child’s rights where applicable law permits.",
           ],
         },
         {
-          title: "9. Automatically stored information",
+          title: "7. Automatically stored information",
           paragraphs: [
-            "Kkiu does not use cookies for advertising or user tracking. Authentication information needed to keep a user signed in and service access records may be stored on the device or in a service provider’s systems.",
+            "Kkiu does not use cookies or SDKs for advertising or user tracking. Authentication information and access records needed to maintain sign-in and service security may be generated during use.",
           ],
         },
         {
-          title: "10. Security",
+          title: "8. Security",
           paragraphs: [
-            "3 DAY WEEKEND LAB. uses safeguards including encryption in transit, Supabase Row Level Security, per-user access controls, and permission-limited database functions.",
+            "3 DAY WEEKEND LAB. uses safeguards including encryption in transit, access restrictions, Row Level Security, and internal access controls.",
           ],
         },
         {
-          title: "11. Privacy contact",
+          title: "9. Privacy contact",
           paragraphs: [
             "Privacy contact: 3 DAY WEEKEND LAB. Operations",
             "Email: 3dayweekendlab@gmail.com",
           ],
         },
         {
-          title: "12. Changes",
+          title: "10. Changes",
           paragraphs: [
             "We will give notice through the service or website before this policy changes. Published and effective: August 5, 2026.",
           ],
