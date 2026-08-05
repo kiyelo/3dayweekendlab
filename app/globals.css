@@ -56,9 +56,9 @@ a { color: inherit; text-decoration: none; }
   display: grid; font-size: clamp(62px, 8.2vw, 132px); line-height: .88;
   font-weight: 900; letter-spacing: .055em;
 }
-.wordmark-dot {
-  display: inline-block; width: .14em; aspect-ratio: 1; margin-left: .09em;
-  background: var(--red); color: transparent; vertical-align: .08em;
+.square-dot {
+  display: inline-block; width: .14em; height: .14em; min-width: 2px; min-height: 2px;
+  margin-left: .09em; background: var(--red); vertical-align: .08em;
 }
 
 .desktop-nav { display: flex; align-items: center; gap: 36px; font-size: 13px; font-weight: 800; }
@@ -117,12 +117,16 @@ a { color: inherit; text-decoration: none; }
 .product-graphic .hot { border-color: var(--red); }
 
 .contact-section {
-  min-height: 520px; display: grid; grid-template-columns: 1fr 2fr; gap: 40px;
+  min-height: 520px; display: grid; grid-template-columns: minmax(140px, .55fr) minmax(0, 2.45fr); gap: 40px;
   padding: 74px max(28px, calc((100vw - 1380px) / 2)); background: var(--black); color: white;
 }
 .contact-section h2 { max-width: 850px; margin: 90px 0 28px; font-size: clamp(46px, 6vw, 94px); line-height: .98; letter-spacing: -.06em; word-break: keep-all; text-wrap: balance; }
 .contact-section .text-link { color: white; border-color: white; }
 .contact-section .text-link:hover { color: var(--red); border-color: var(--red); }
+
+@media (min-width: 901px) {
+  .contact-section h2 { max-width: none; font-size: clamp(46px, 4vw, 72px); white-space: nowrap; }
+}
 
 .product-subnav { position: sticky; top: 74px; z-index: 40; height: 55px; border-bottom: 1px solid var(--line); background: var(--white); }
 .subnav-inner { justify-content: space-between; }
