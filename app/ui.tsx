@@ -2,6 +2,8 @@ import Link from "next/link";
 
 export type Locale = "ko" | "en";
 
+const CONTACT_FORM_HREF = "https://forms.gle/9Ljt3w7MaNJfumLb8";
+
 const labels = {
   ko: {
     product: "제품",
@@ -29,10 +31,6 @@ function kkiuHref(locale: Locale, path = "/") {
   return locale === "ko"
     ? `https://kkiu.3dayweekendlab.com${path}`
     : `https://kkiu.3dayweekendlab.com/en${path}`;
-}
-
-function contactHref(locale: Locale) {
-  return locale === "ko" ? "/#contact" : "/en/#contact";
 }
 
 export function LogoSymbol({ compact = false }: { compact?: boolean }) {
@@ -72,7 +70,6 @@ export function Header({
   const c = labels[locale];
   const home = locale === "ko" ? "/" : "/en";
   const languageHref = alternateHref ?? (locale === "ko" ? "/en" : "/");
-  const contactLink = contactHref(locale);
   const productHref = kkiuHref(locale);
 
   return (
@@ -93,7 +90,7 @@ export function Header({
               </Link>
             </div>
           </details>
-          <Link href={contactLink}>{c.contact}</Link>
+          <Link href={CONTACT_FORM_HREF} target="_blank" rel="noreferrer">{c.contact}</Link>
           <Link className="language-link" href={languageHref} hrefLang={locale === "ko" ? "en" : "ko"}>
             {locale === "ko" ? "EN" : "KO"}
           </Link>
@@ -103,7 +100,7 @@ export function Header({
           <summary>{c.menu}</summary>
           <nav className="mobile-menu" aria-label="Mobile navigation">
             <Link href={productHref}>{c.kkiu}</Link>
-            <Link href={contactLink}>{c.contact}</Link>
+            <Link href={CONTACT_FORM_HREF} target="_blank" rel="noreferrer">{c.contact}</Link>
             <Link href={languageHref}>{locale === "ko" ? "English" : "한국어"}</Link>
           </nav>
         </details>
@@ -145,7 +142,7 @@ export function Footer({ locale }: { locale: Locale }) {
   return (
     <footer className="site-footer">
       <div className="footer-inner">
-        <Link className="footer-contact" href={contactHref(locale)}>{c.contact}</Link>
+        <Link className="footer-contact" href={CONTACT_FORM_HREF} target="_blank" rel="noreferrer">{c.contact}</Link>
         <p className="copyright">© {new Date().getFullYear()} 3 DAY WEEKEND LAB<span className="square-dot" aria-hidden="true" /></p>
       </div>
     </footer>
@@ -202,7 +199,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           <div className="section-index">CONTACT / 02</div>
           <div>
             <h2>{ko ? "함께 이야기할 일이 있나요?" : "Have something to discuss?"}</h2>
-            <Link className="text-link" href={contactHref(locale)}>
+            <Link className="text-link" href={CONTACT_FORM_HREF} target="_blank" rel="noreferrer">
               {ko ? "문의하기" : "Contact"} <span aria-hidden="true">↗</span>
             </Link>
           </div>
