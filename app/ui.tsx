@@ -18,12 +18,12 @@ const labels = {
   en: {
     product: "Products",
     contact: "Contact",
-    kkiu: "Kkiu Todo",
+    kkiu: "KKiu Todo",
     menu: "Menu",
     intro: "Overview",
     privacy: "Privacy",
     terms: "Terms",
-    deletion: "Leave Kkiu",
+    deletion: "Leave KKiu Todo",
   },
 } as const;
 
@@ -119,10 +119,10 @@ export function ProductSubnav({ locale, active = "intro" }: { locale: Locale; ac
   ];
 
   return (
-    <nav className="product-subnav" aria-label={locale === "ko" ? "끼우 메뉴" : "Kkiu navigation"}>
+    <nav className="product-subnav" aria-label={locale === "ko" ? "끼우 투두 메뉴" : "KKiu Todo navigation"}>
       <div className="subnav-inner">
         <Link className="subnav-title" href={kkiuHref(locale)}>
-          KKIU TODO
+          KKiu Todo
         </Link>
         <div className="subnav-links">
           {links.map(([key, href, label]) => (
@@ -173,7 +173,7 @@ export function HomePage({ locale }: { locale: Locale }) {
           <div className="product-row">
             <div>
               <p className="red-label">TODO APPLICATION</p>
-              <h1>{ko ? "끼우 투두" : "Kkiu Todo"}<span className="square-dot" aria-hidden="true" /></h1>
+              <h1>{ko ? "끼우 투두" : "KKiu Todo"}<span className="square-dot" aria-hidden="true" /></h1>
             </div>
             <div className="product-summary">
               <p>
@@ -220,8 +220,8 @@ export function ProductPage({ locale }: { locale: Locale }) {
         <section className="kkiu-hero">
           <div className="kkiu-label">PRODUCT / 01</div>
           <div className="kkiu-title">
-            <span>KKIU</span>
-            <span>TODO<span className="square-dot" aria-hidden="true" /></span>
+            <span>KKiu</span>
+            <span>Todo<span className="square-dot" aria-hidden="true" /></span>
           </div>
           <p>
             {ko
@@ -232,10 +232,10 @@ export function ProductPage({ locale }: { locale: Locale }) {
 
         <section className="kkiu-overview">
           <div className="overview-copy">
-            <span className="section-index">ABOUT KKIU</span>
+            <span className="section-index">ABOUT KKIU TODO</span>
             <h2>{ko ? "할 일은 단순하게.\n하루는 가볍게." : "Simple tasks.\nA lighter day."}</h2>
           </div>
-          <div className="todo-board" aria-label={ko ? "끼우 투두 화면 예시" : "Kkiu example task list"}>
+          <div className="todo-board" aria-label={ko ? "끼우 투두 화면 예시" : "KKiu Todo example task list"}>
             <div className="todo-head">
               <strong>{ko ? "오늘" : "Today"}</strong>
               <span>03</span>
