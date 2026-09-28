@@ -33,9 +33,6 @@ function kkiuHref(locale: Locale, path = "/") {
     : `https://kkiu.3dayweekendlab.com/en${path}`;
 }
 
-function kkiuProductPageHref(locale: Locale) {
-  return locale === "ko" ? "/products/kkiu" : "/en/products/kkiu";
-}
 
 export function LogoSymbol({ compact = false }: { compact?: boolean }) {
   return (
@@ -74,7 +71,7 @@ export function Header({
   const c = labels[locale];
   const home = locale === "ko" ? "/" : "/en";
   const languageHref = alternateHref ?? (locale === "ko" ? "/en" : "/");
-  const productHref = kkiuProductPageHref(locale);
+  const productHref = kkiuHref(locale);
 
   return (
     <header className="site-header">
@@ -116,7 +113,7 @@ export function Header({
 export function ProductSubnav({ locale, active = "intro" }: { locale: Locale; active?: string }) {
   const c = labels[locale];
   const links = [
-    ["intro", kkiuProductPageHref(locale), c.intro],
+    ["intro", kkiuHref(locale), c.intro],
     ["privacy", kkiuHref(locale, "/privacy/"), c.privacy],
     ["terms", kkiuHref(locale, "/terms/"), c.terms],
     ["deletion", kkiuHref(locale, "/delete-account/"), c.deletion],
@@ -125,7 +122,7 @@ export function ProductSubnav({ locale, active = "intro" }: { locale: Locale; ac
   return (
     <nav className="product-subnav" aria-label={locale === "ko" ? "끼우 투두 메뉴" : "KKiu Todo navigation"}>
       <div className="subnav-inner">
-        <Link className="subnav-title" href={kkiuProductPageHref(locale)}>
+        <Link className="subnav-title" href={kkiuHref(locale)}>
           KKiu Todo
         </Link>
         <div className="subnav-links">
@@ -185,7 +182,7 @@ export function HomePage({ locale }: { locale: Locale }) {
                   ? "해야 할 일을 오늘의 빈틈에 끼워 넣고, 하나씩 가볍게 끝내는 투두 앱."
                   : "A simple to-do app for fitting tasks into the open spaces of your day."}
               </p>
-              <Link className="text-link" href={kkiuProductPageHref(locale)}>
+              <Link className="text-link" href={kkiuHref(locale)}>
                 {ko ? "제품 보기" : "View product"} <span aria-hidden="true">↗</span>
               </Link>
             </div>
